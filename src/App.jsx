@@ -26,7 +26,7 @@ import ReadingTestPage from './pages/Testing/ReadingTestPage'
 import WritingTestPage from './pages/Testing/WritingTestPage'
 import SpeakingTestPage from './pages/Testing/SpeakingTestPage'
 import FlashcardManagement from './pages/FlashcardManagement/FlashcardManagement'
-import TestManagement from './pages/TestManagement/TestManagement'
+import TestManagement from './pages/TestManagement/Testmanagement'
 
 const App = () => {
 
