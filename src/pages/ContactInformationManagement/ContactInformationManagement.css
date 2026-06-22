@@ -1,0 +1,116 @@
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1300px;
+    margin: 30px auto;
+    gap: 40px;
+    background-color: white;
+    padding-top:80px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 80px;
+}
+
+.contact-container h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 26px;
+}
+
+.contact-left, .contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 4px;
+    border: 1.5px solid rgb(36, 106, 164);
+}
+
+.contact-left p, .contact-right p {
+    margin: 5px 0;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-container input, .contact-container textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #898989;
+    outline: none;
+    font-size: 13px;
+    transition: border-color 0.2s ease;
+}
+
+.contact-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.add-branch, .add-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add-branch input, .add-link input {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #898989;
+}
+
+.add-branch-btn, .add-link-btn, .save-contact {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+}
+
+.add-branch-btn:hover, .add-link-btn:hover, .save-contact:hover {
+    background-color: #0056b3;
+}
+
+.branch-item, .link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eef2f6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.delete-branch, .delete-link {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.save-contact {
+    margin-top: 20px;
+    align-self: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+    background: rgb(36, 106, 164);
+}
+.save-contact:hover{
+    background: rgb(57, 146, 219);
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}

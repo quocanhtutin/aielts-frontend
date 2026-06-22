@@ -1,0 +1,96 @@
+.account-management {
+  padding: 100px;
+}
+
+.account-management button {
+    cursor: pointer;
+}
+
+.user-section{
+    margin-top: 15px;
+}
+.user-section button{
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: none;
+}
+.user-section .detail-btn{
+    background-color: #2e89ff;
+    color: white;
+}
+
+.user-section .detail-btn:hover{
+  background-color: #1b6ee0;
+}
+
+.user-section .deactivate-btn{
+  background: #dc3545;
+  color: white;
+}
+
+.user-section .deactivate-btn:hover{
+  background: #ba2d3b;
+}
+
+.admin-section{
+    margin-top: 30px;
+}
+.admin-section button{
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+.admin-section .deactivate-btn{
+  background: #dc3545;
+  color: white;
+}
+
+.admin-section .deactivate-btn:hover{
+  background: #ba2d3b;
+  
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-header h3{
+  color: rgba(36, 106, 164);
+}
+
+.list-table {
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1.5px solid rgb(36, 106, 164);
+  overflow: hidden;
+}
+
+.list-table-format-user {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.8fr;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-table-format-user.inactive {
+  opacity: 0.6;
+  background-color: #f9f9f9;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+.title-user{
+  padding-top: 10px;
+}
+.show-inactive-user{
+  cursor: pointer;
+  color: rgba(36, 106, 164, 0.304);
+  transition: color 0.2s ease;
+}
+.show-inactive-user:hover{
+  color: rgb(36, 106, 164);
+}

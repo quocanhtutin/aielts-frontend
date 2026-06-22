@@ -1,0 +1,32 @@
+@import url('https://testcdnamisapp.misacdn.net/fonts/font.inter.css');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+body{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x:hidden !important;
+  color:#333
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.app{
+  width: 80%;
+  margin:auto;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

@@ -1,0 +1,10 @@
+.course-display{
+    padding: 0 100px 100px 100px;
+}
+.course-display-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 50px;
+    row-gap: 50px;
+}

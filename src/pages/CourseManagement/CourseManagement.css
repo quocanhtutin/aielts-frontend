@@ -1,0 +1,138 @@
+.courses-manager-container{
+    padding-bottom: 50px;
+}
+.add-course-container{
+    width: 100%;
+    padding: 100px 100px 30px 100px;
+    position: relative;
+}
+.flex-row{
+    width: 100%;
+    display: flex;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.add{
+    width: 100%;
+    color: #6d6d6d;
+    font-size: 18px;
+    /* background-color: whitesmoke; */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1.5px solid rgb(36, 106, 164);
+    /* box-shadow: 5px 5px rgba(0, 0, 0, 0.347); */
+
+}
+.add form{
+    gap:20px;
+}
+.add-img-upload{
+    min-width: 25%;
+    max-width: 25%;
+    max-height: 260px;
+    margin-right: 20px;
+    
+}
+.add-img-upload img{
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    object-fit:cover;
+}
+.add-img-title{
+    display: flex;
+    margin-left: 20px;
+}
+.add-img-btn{
+    color: rgb(142, 183, 217);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5px;
+}
+.add-img-btn:hover{
+    color: rgb(36, 106, 164);
+}
+.add-product-name, .add-product-description{
+    width: 100%;
+}
+.add-product-name input, .add-product-description textarea{
+    padding: 6px 8px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #898989;
+    font-size: 16px;
+}
+.add-category-price{
+    display: flex;
+    gap: 30px;
+    margin-top: 4px;
+}
+.add-category-price select, .add-category-price input{
+    font-size: 16px;
+    padding: 6px 8px;
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid #898989;
+}
+.add-btn {
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 6px 8px;
+    background: rgb(36, 106, 164);
+    font-size: max(1vm, 20px);
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    float: right;
+    width: 15%;
+    margin-left: auto;
+    transition: background 0.2s ease;
+}
+.add-btn:hover{
+    background: rgb(57, 146, 219);
+}
+.add-detail{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.add-category, .add-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+.inactive-container{
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.inactive-container.open{
+    max-height: 1000px;
+}
+.show-inactive-courses{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 30px;
+    justify-content: right;
+    padding-left: 100px;
+    padding-right: 100px;
+    cursor: pointer;
+    color: rgba(36, 106, 164, 0.304);
+    transition: color 0.2s ease;
+}
+.show-inactive-courses:hover{
+  color: rgb(36, 106, 164);
+}

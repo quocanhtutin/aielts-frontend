@@ -1,0 +1,469 @@
+.listen-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f1f5f9;
+    font-size: 14px;
+    color: #333;
+}
+
+/* HEADER */
+.testing-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgb(36, 106, 164);
+  color: white;
+  align-items: center;
+}
+
+.testing-title {
+  font-weight: 600;
+}
+
+.testing-timer {
+  display: flex;
+  align-items: center;
+  gap:12px;
+  font-weight: bold;
+  color: #059669;
+}
+
+.test-result{
+  color: #fff
+}
+
+/* AUDIO */
+.listen-audio {
+  padding: 10px 20px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display:flex;
+  align-items: center;
+}
+.listen-audio audio{
+  height:20px;
+  padding:0;
+}
+/* BODY */
+.listen-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* CONTENT */
+.listen-content {
+  flex: 3;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.listen-section {
+  margin-bottom: 30px;
+}
+
+.listen-section h3 {
+  margin-bottom: 10px;
+}
+
+/* QUESTION */
+.listen-question {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.q-number {
+  width: 30px;
+}
+
+.listen-question input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px; 
+  outline:auto
+}
+
+/* SIDEBAR */
+.listen-sidebar {
+  width: 250px;
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  padding: 15px;
+}
+
+.listen-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin: 15px 0;
+}
+
+.listen-nav-btn {
+  height: 32px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.listen-nav-btn.answered {
+  background: #059669;
+  color: white;
+  border: none;
+}
+
+/* SUBMIT */
+.listen-submit {
+  width: 100%;
+  padding: 10px;
+  background: #0ea5a4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fill-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.fill-text {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.fill-question {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fill-input {
+  width: 120px;
+  padding: 6px 8px;
+  border: 2px solid #38bdf8;
+  border-radius: 20px;
+  outline: none;
+  text-align: center;
+}
+
+.fill-input:focus {
+  border-color: #0ea5e9;
+}
+
+.testing-bottom-nav {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 10px 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+/* PART BLOCK */
+.part-block {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.part-block.active {
+  background: rgba(36, 106, 164, 0.062);
+  border: 1px solid rgb(36, 106, 164);
+  gap: 12px;
+  justify-content: space-between;
+}
+
+/* HEADER */
+.part-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  width: 100%;
+}
+
+.part-block.active .part-header {
+  width: 20px;
+  margin-right: 6px;
+}
+
+.part-progress {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* QUESTION ROW */
+.part-questions {
+  display: flex;
+  flex-wrap: nowrap; /* QUAN TRỌNG */
+  gap: 6px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+/* CIRCLE */
+.q-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.q-circle.done {
+  background: #059669;
+  color: white;
+  border: none;
+}
+
+.q-circle.wrong {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+/* tránh bị che nội dung */
+.listen-content {
+  padding-bottom: 120px;
+}
+
+.submit_test_btn {
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 12px;
+  font-size: 14px;
+}
+
+/* Loading overlay */
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+.overlay-box {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #2563eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating action buttons and chat popup */
+.floating-actions {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10002;
+}
+.fab {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.fab svg {
+  width: 20px;
+  height: 20px;
+  color: #374151;
+}
+
+.chat-popup {
+  position: fixed;
+  top: 170px;
+  right: 20px;
+  width: 300px;
+  z-index: 10003;
+}
+.chat-popup .card {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+}
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.chat-messages {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 6px;
+  background: #fafafa;
+  margin-top:8px
+}
+
+.chat-msg {
+  margin-bottom: 10px;
+  display: flex;
+}
+.chat-msg.user {
+  justify-content: flex-end;
+}
+.chat-msg.assistant {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.user .bubble {
+  background: #2e89ff;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.assistant .bubble {
+  background: #e5e7eb;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+  gap: 8px;
+  outline: none;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline:none;
+}
+
+.chat-input button {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Dictionary input and skeleton */
+.dict-search-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline:none;
+}
+
+.skeleton-line {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.chat-popup .btn {
+  background: #059669;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.chat-popup .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Script display (reused from ListeningTestManagement) */
+.ltm_script_paragraph{ margin-bottom:12px; white-space:normal }
+.ltm_script_sentence{ cursor:pointer; transition: background 0.12s ease; padding:2px 0px; border-radius:2px; display:inline-block }
+.ltm_script_sentence:hover{ background:#fff3b0 }
+.ltm_script_sentence.active{ background: #fff2a8 }
+
+.result-card{
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s;
+  background: #fafafa;
+  width:320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #333;
+  position: relative;
+}
+
+/* Typing dots animation for assistant pending message */
+.typing-dots { display: inline-flex; gap: 6px; align-items: flex-end; }
+.typing-dots span { width: 6px; height: 6px; background: #9ca3af; border-radius: 50%; display: inline-block; transform: translateY(0); animation: typingBounce 0.8s infinite; }
+.typing-dots span:nth-child(1) { animation-delay: 0s; }
+.typing-dots span:nth-child(2) { animation-delay: 0.12s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.24s; }
+@keyframes typingBounce { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
