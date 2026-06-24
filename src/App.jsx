@@ -27,6 +27,7 @@ import WritingTestPage from './pages/Testing/WritingTestPage'
 import SpeakingTestPage from './pages/Testing/SpeakingTestPage'
 import FlashcardManagement from './pages/FlashcardManagement/FlashcardManagement'
 import TestManagement from './pages/TestManagement/Testmanagement'
+import ResetPassword from './pages/ResetPassword/ResetPassword'
 
 const App = () => {
 
@@ -34,7 +35,7 @@ const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const location = useLocation();
 
-  const hideNavbarFor = ['/listeningtest', '/readingtest', '/writingtest', '/speakingtest'];
+  const hideNavbarFor = ['/listeningtest', '/readingtest', '/writingtest', '/speakingtest', '/reset-password'];
   const hideNavbar = hideNavbarFor.some(p => location.pathname.startsWith(p));
 
   return (
@@ -49,7 +50,7 @@ const App = () => {
           <Route path='/course/:id' element={<CourseDetail setShowLogin={setShowLogin} />} />
           <Route path='/publiccollection' element= {<PublicNewWordCollections setShowLogin={setShowLogin} />}/>
           <Route path='/cambridgelibrary' element={<CambridgeLibrary />} />
-          
+          <Route path='/reset-password/:token' element={<ResetPassword />} />
           {userRole === "admin" && (
             <>
               <Route path='/admin/accountmanagement' element={<AccountManagement />} />

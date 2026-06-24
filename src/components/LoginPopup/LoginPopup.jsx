@@ -62,32 +62,158 @@ const LoginPopup = ({ setShowLogin }) => {
         return () => document.body.style.overflow = "auto";
     }, []);
 
+    const handleForgotPassword = async (event) => {
+        event.preventDefault();
+
+        if (!data.email) {
+            toast.error("Vui lòng nhập email");
+            return;
+        }
+
+        try {
+            const response = await axios.post(
+                `${url}/api/user/forgot-password`,
+                {
+                    email: data.email
+                }
+            );
+
+            if (response.data.success) {
+                toast.success(response.data.message);
+                setCurrState("Login");
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (error) {
+            toast.error("Có lỗi xảy ra");
+        }
+    };
+
     return (
         <div className='login-popup'>
-            <form onSubmit={onLogin} action="" className="login-popup-container">
+            <form
+                onSubmit={
+                    currState === "Forgot Password"
+                        ? handleForgotPassword
+                        : onLogin
+                }
+                className="login-popup-container"
+            >
                 <div className="login-popup-title">
-                    <h2>{currState}</h2>
+                    <h2>
+                        {
+                            currState === "Login"
+                                ? "Đăng nhập"
+                                : currState === "Sign up"
+                                    ? "Đăng ký"
+                                    : "Quên mật khẩu"
+                        }
+                    </h2>
                     <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
                 </div>
                 <div className="login-popup-inputs">
-                    {currState === "Login" ? <></> :
+
+                    {currState === "Sign up" && (
                         <>
-                            <input name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder='Your name' required />
-                            <input name='phone' onChange={onChangeHandler} value={data.phone} type="text" placeholder='Your phone number' required />
-                        </>}
-                    <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Your email' required />
-                    <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Password' required />
+                            <input
+                                name="name"
+                                onChange={onChangeHandler}
+                                value={data.name}
+                                type="text"
+                                placeholder="Your name"
+                                required
+                            />
+
+                            <input
+                                name="phone"
+                                onChange={onChangeHandler}
+                                value={data.phone}
+                                type="text"
+                                placeholder="Your phone number"
+                                required
+                            />
+                        </>
+                    )}
+
+                    <input
+                        name="email"
+                        onChange={onChangeHandler}
+                        value={data.email}
+                        type="email"
+                        placeholder="Your email"
+                        required
+                    />
+
+                    {currState !== "Forgot Password" && (
+                        <input
+                            name="password"
+                            onChange={onChangeHandler}
+                            value={data.password}
+                            type="password"
+                            placeholder="Password"
+                            required
+                        />
+                    )}
+
                 </div>
-                <button type='submit'>{currState === 'Sign up' ? 'Create account' : 'Login'}</button>
-                {/* <div className="login-popup-condition">
-                    <input type='checkbox' required />
-                    <p>By continuing, I agree to the terms of use & privacy policy.</p>
-                </div> */}
-                {currState === "Login"
-                    ?
-                    <p>Create a new Account? <span onClick={() => setCurrState("Sign up")}>Click here</span></p>
-                    :
-                    <p>Already have an account?<span onClick={() => setCurrState("Login")}>Login here</span></p>
+                <button type="submit">
+                    {
+                        currState === "Sign up"
+                            ? "Đăng ký"
+                            : currState === "Forgot Password"
+                                ? "Gửi email đặt lại mật khẩu"
+                                : "Đăng nhập"
+                    }
+                </button>
+                {
+                    currState === "Login" &&
+                    (
+                        <>
+                            <div className="forget-password">
+                                <p
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => setCurrState("Forgot Password")}
+                                >
+                                    Quên mật khẩu?
+                                </p>
+                            </div>
+
+                            <p>
+                                Đăng ký tài khoản?
+                                <span onClick={() => setCurrState("Sign up")}>
+                                    Nhấn đây
+                                </span>
+                            </p>
+                        </>
+                    )
+                }
+                {
+                    currState === "Sign up" &&
+                    (
+                        <>
+                            <div className="forget-password">
+                                <p
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => setCurrState("Forgot Password")}
+                                >
+                                    Quên mật khẩu?
+                                </p>
+                            </div>
+
+                            <p>Đã có tài khoản?<span onClick={() => setCurrState("Login")}>Đăng nhập</span></p>
+                        </>
+                    )
+                }
+                {
+                    currState === "Forgot Password" &&
+                    (
+                        <p>
+                            Quay lại
+                            <span onClick={() => setCurrState("Login")}>
+                                Đăng nhập
+                            </span>
+                        </p>
+                    )
                 }
             </form>
         </div>
