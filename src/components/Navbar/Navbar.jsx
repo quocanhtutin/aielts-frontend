@@ -70,23 +70,16 @@ const Navbar = ({ setShowLogin }) => {
 
                 {userRole === "admin" ? (
                     <>
-                        <div className="dropdown">
-                            <p
-                                className={
-                                    isActive("/admin/accountmanagement") ||
-                                        isActive("/admin/coursemanagement")
-                                        ? "active dropbtn"
+                        <Link className={
+                                    isActive("/admin/accountmanagement") 
+                                        ? "active"
                                         : "dropbtn"
-                                }
-                            >
-                                Quản lý
-                            </p>
-                            <div className="dropdown-content">
-                                <Link to="/admin/accountmanagement">Tài khoản</Link>
-                                <Link to="/admin/coursemanagement">Khóa học</Link>
-                            </div>
-                        </div>
-                        <Link className={isActive("/admin/contactInformation") ? "active" : ""} to="/admin/contactInformation">Liên hệ</Link>
+                                } to="/admin/accountmanagement">Tài khoản</Link>
+                        <Link className={
+                                    isActive("/admin/coursemanagement")
+                                        ? "active"
+                                        : "dropbtn"
+                                } to="/admin/coursemanagement">Khóa học</Link>
                         <Link 
                             to="/admin/flashcardmanagement/69c61effc6f90d412cee3f9d" className={isActive("/admin/flashcardmanagement") ? "active" : ""}
                         >
@@ -95,6 +88,7 @@ const Navbar = ({ setShowLogin }) => {
                         <Link to="/admin/testmanagement/home" className={isActive("/admin/testmanagement") ? "active" : ""}>
                             Đề luyện
                         </Link>
+                        <Link className={isActive("/admin/contactInformation") ? "active" : ""} to="/admin/contactInformation">Liên hệ</Link>
                     </>
                 )
                     :

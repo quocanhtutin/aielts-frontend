@@ -1,6 +1,5 @@
 .course-detail {
-    margin-top: 50px;
-    padding: 50px 100px;
+    padding: 100px 100px 0 100px;
     width: 100%;
     display: flex;
 }

@@ -4,13 +4,12 @@
     align-items: flex-start;
     width: 100%;
     max-width: 1300px;
-    margin: 30px auto;
+    margin: 0px auto;
     gap: 40px;
     background-color: white;
     padding-top:80px;
     padding-left: 100px;
     padding-right: 100px;
-    padding-bottom: 80px;
 }
 
 .contact-container h2 {

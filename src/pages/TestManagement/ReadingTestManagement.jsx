@@ -66,7 +66,8 @@ const parseLineToContent = (line) => {
     matching: [
       'Label the diagram below.',
       'Match the following.',
-      'Select items which are mentioned in the audio.'
+      'Select items which are mentioned in the audio.',
+      'Select items which are mentioned in the passage.'
     ]
   }
 

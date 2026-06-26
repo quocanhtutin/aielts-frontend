@@ -915,20 +915,20 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
       toast.error('Lỗi tạo test')
     }
   }
-  const handleSaveOrCreate = () => {
-    if (skillId) updateTest()
-    else createTest()
-    fetchSkill() // refresh data after save/create
+  const handleSaveOrCreate = async () => {
+    if (skillId) await updateTest()
+    else await createTest()
+    await fetchSkill() // refresh data after save/create
   }
 
-  const updateTest = () => {
+  const updateTest = async () => {
     if (!title.trim()) {
       toast.error('Tiêu đề test không được để trống')
       return
     }
     const payload = { testCollectionId: testCollection._id, type: 'listening', title, description, duration: Number(duration), parts }
     
-      axios.put(`${url}/api/test/skills/${skillId}`, payload, { headers: { Authorization: `Bearer ${token}` } })
+      await axios.put(`${url}/api/test/skills/${skillId}`, payload, { headers: { Authorization: `Bearer ${token}` } })
         .then(res => {
           if (res.data?.success) {
             toast.success('Updated listening test')
