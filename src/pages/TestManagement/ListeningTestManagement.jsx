@@ -239,7 +239,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
           }
         } catch (e) {
           console.error(e)
-          toast.error('Failed to load skill data')
+          toast.error('Lỗi tải dữ liệu skill')
         }
       }
 
@@ -314,7 +314,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
           if (imageBlock) newBlocks.push(imageBlock)
           newBlocks.push(block)
           const newExercises = Array.isArray(p.exercises) ? [...p.exercises, exerciseMeta] : [exerciseMeta]
-          toast.success('Exercise added to part ' + p.part)
+          toast.success('Thêm bài tập vào phần ' + p.part)
           return { ...p, blocks: newBlocks, exercises: newExercises }
         }
 
@@ -325,7 +325,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
         const inserted = [instructionBlock, ...(imageBlock ? [imageBlock] : []), block]
         const newBlocks = [...before, ...inserted, ...after]
         const newExercises = Array.isArray(p.exercises) ? p.exercises.map((ex, i) => i === eIdx ? exerciseMeta : ex) : [exerciseMeta]
-        toast.success('Exercise updated in part ' + p.part)
+        toast.success('Bài tập được cập nhật trong phần ' + p.part)
         return { ...p, blocks: newBlocks, exercises: newExercises }
       }
 
@@ -334,7 +334,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
       if (imageBlock) newBlocks.push(imageBlock)
       newBlocks.push(block)
       const newExercises = Array.isArray(p.exercises) ? [...p.exercises, exerciseMeta] : [exerciseMeta]
-      toast.success('Exercise added to part ' + p.part)
+      toast.success('Thêm bài tập vào phần ' + p.part)
       return { ...p, blocks: newBlocks, exercises: newExercises }
     }))
 
@@ -484,7 +484,6 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
     const p = parts[idx]
     if (!p) return
     console.log('Part saved:', JSON.stringify(p, null, 2))
-    toast.success('Part object logged to console')
     // clear dirty flag for this part
     clearPartDirty(idx)
     // if creator was dirty and saving this part, clear creator dirty
@@ -620,10 +619,10 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
       const data = await uploadToServer(file)
       setParts(prev => prev.map((p, i) => i === idx ? ({ ...p, audio: data }) : p))
       markPartDirty(idx)
-      toast.success('Audio uploaded')
+      toast.success('Tải audio thành công')
     } catch (e) {
       console.error(e)
-      toast.error('Audio upload failed')
+      toast.error('Tải audio thất bại')
     }
   }
 
@@ -653,10 +652,10 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
         );
 
         await fetchSkill() // refresh data after import
-        toast.success('PDF uploaded')
+        toast.success('Tải PDF thành công')
       } catch (e) {
         console.error(e)
-        toast.error('PDF upload failed')
+        toast.error('Tải PDF thất bại')
       }
     }
 
@@ -712,7 +711,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
 
     console.log('Script saved:', JSON.stringify(passage, null, 2))
     setScriptCollapsed(true)
-    toast.success('Script saved')
+    toast.success('Cập nhật script')
   }
 
   // --- Answer key handlers ---
@@ -754,7 +753,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
     setParts(prev => prev.map((p, idx) => idx === partIdx ? ({ ...p, answerKey: JSON.parse(JSON.stringify(answerListDraft)) }) : p))
     markPartDirty(partIdx)
     console.log('Answer key saved for part', answerEditingPartIndex, JSON.stringify(answerListDraft, null, 2))
-    toast.success('Answer key saved')
+    toast.success('Cập nhật key trả lời')
     setShowAnswerPopup(false)
     setAnswerEditingPartIndex(null)
     setAnswerUnsaved(false)
@@ -902,7 +901,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
     try {
         const res = await axios.post(`${url}/api/test/skills`, payload, { headers: { Authorization: `Bearer ${token}` } })
         if (res.data?.success) {
-          toast.success('Created listening test')
+          toast.success('Tạo test listening thành công')
           setScriptCollapsed(false)
           setCreatorDirty(false)
           setDirtyParts({})
@@ -931,7 +930,7 @@ const ListeningTestManagement = ({ testCollection, setSidebarData, collectionSki
       await axios.put(`${url}/api/test/skills/${skillId}`, payload, { headers: { Authorization: `Bearer ${token}` } })
         .then(res => {
           if (res.data?.success) {
-            toast.success('Updated listening test')
+            toast.success('Cập nhật test listening thành công')
           } else {
             toast.error('Lỗi cập nhật test')
           }

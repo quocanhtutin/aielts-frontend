@@ -101,10 +101,10 @@ const uploadToServer = async (file, baseUrl, token) => {
                 const imgUrl = data?.url || data.data
                 setImageSrcLocal(imgUrl)
                 markDirty()
-                toast.success('Image uploaded')
+                toast.success('Tải ảnh thành công')
               } catch (err) {
                 console.error(err)
-                toast.error('Image upload failed')
+                toast.error('Tải ảnh thất bại')
               }
             }} />
           )}
@@ -118,10 +118,10 @@ const uploadToServer = async (file, baseUrl, token) => {
               const imgUrl = data?.url || data.data
               setImageSrcLocal(imgUrl)
               markDirty()
-              toast.success('Image uploaded')
+              toast.success('Tải ảnh thành công')
             } catch (err) {
               console.error(err)
-              toast.error('Image upload failed')
+              toast.error('Tải ảnh thất bại')
             }
           }} />
         </div>
@@ -236,10 +236,10 @@ const uploadToServer = async (file, baseUrl, token) => {
                 const data = await uploadToServer(f, url, token)
                 const imgUrl = data?.url || data.data
                 setImageSrcLocal(imgUrl)
-                toast.success('Image uploaded')
+                toast.success('Tải ảnh thành công')
               } catch (err) {
                 console.error(err)
-                toast.error('Image upload failed')
+                toast.error('Tải ảnh thất bại')
               }
             }} />
           )}
@@ -252,10 +252,10 @@ const uploadToServer = async (file, baseUrl, token) => {
               const data = await uploadToServer(f, url, token)
               const imgUrl = data?.url || data.data
               setImageSrcLocal(imgUrl)
-              toast.success('Image uploaded')
+              toast.success('Tải ảnh thành công')
             } catch (err) {
               console.error(err)
-              toast.error('Image upload failed')
+              toast.error('Tải ảnh thất bại')
             }
           }} />
         </div>
@@ -418,10 +418,10 @@ const uploadToServer = async (file, baseUrl, token) => {
                 const imgUrl = data?.url || data.data
                 setExerciseImage(imgUrl)
                 markDirty()
-                toast.success('Image uploaded')
+                toast.success('Tải ảnh thành công')
               } catch (err) {
                 console.error(err)
-                toast.error('Image upload failed')
+                toast.error('Tải ảnh thất bại')
               }
             }} />
           )}
@@ -435,10 +435,10 @@ const uploadToServer = async (file, baseUrl, token) => {
               const imgUrl = data?.url || data.data
               setExerciseImage(imgUrl)
               markDirty()
-              toast.success('Image uploaded')
+              toast.success('Tải ảnh thành công')
             } catch (err) {
               console.error(err)
-              toast.error('Image upload failed')
+              toast.error('Tải ảnh thất bại')
             }
           }} />
         </div>
@@ -465,10 +465,10 @@ const uploadToServer = async (file, baseUrl, token) => {
                           const data = await uploadToServer(f, url, token)
                           const imgUrl = data?.url || data.data 
                           updateOption(qi, oi, 'src', imgUrl)
-                          toast.success('Image uploaded')
+                          toast.success('Tải ảnh thành công')
                         } catch (err) {
                           console.error(err)
-                          toast.error('Image upload failed')
+                          toast.error('Tải ảnh thất bại')
                         }
                       }} />
                       <button className="ltm_btn" onClick={() => document.getElementById(`mcq_opt_file_${qi}_${oi}`)?.click()}>{op.src ? 'Update' : 'Upload'}</button>
@@ -564,10 +564,10 @@ const uploadToServer = async (file, baseUrl, token) => {
                 const data = await uploadToServer(f, url, token)
                 const imgUrl = data?.url || data.data
                 setExerciseImage(imgUrl)
-                toast.success('Image uploaded')
+                toast.success('Tải ảnh thành công')
               } catch (err) {
                 console.error(err)
-                toast.error('Image upload failed')
+                toast.error('Tải ảnh thất bại')
               }
             }} />
           )}
@@ -581,10 +581,10 @@ const uploadToServer = async (file, baseUrl, token) => {
               const imgUrl = data?.url || data.data
               setExerciseImage(imgUrl)
                 markDirty()
-              toast.success('Image uploaded')
+              toast.success('Tải ảnh thành công')
             } catch (err) {
               console.error(err)
-              toast.error('Image upload failed')
+              toast.error('Tải ảnh thất bại')
             }
           }} />
         </div>

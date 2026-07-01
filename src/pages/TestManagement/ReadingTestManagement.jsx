@@ -238,7 +238,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
           }
         } catch (e) {
           console.error(e)
-          toast.error('Failed to load skill data')
+          toast.error('lỗi tải dữ liệu skill')
         }
       }
 
@@ -325,7 +325,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
           if (imageBlock) newBlocks.push(imageBlock)
           newBlocks.push(block)
           const newExercises = Array.isArray(p.exercises) ? [...p.exercises, exerciseMeta] : [exerciseMeta]
-          toast.success('Exercise added to part ' + p.part)
+          toast.success('Thêm bài tập cho phần ' + p.part)
           return { ...p, blocks: newBlocks, exercises: newExercises }
         }
 
@@ -336,7 +336,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
         const inserted = [instructionBlock, ...(imageBlock ? [imageBlock] : []), block]
         const newBlocks = [...before, ...inserted, ...after]
         const newExercises = Array.isArray(p.exercises) ? p.exercises.map((ex, i) => i === eIdx ? exerciseMeta : ex) : [exerciseMeta]
-        toast.success('Exercise updated in part ' + p.part)
+        toast.success('Cập nhật bài tập trong phần ' + p.part)
         return { ...p, blocks: newBlocks, exercises: newExercises }
       }
 
@@ -345,7 +345,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
       if (imageBlock) newBlocks.push(imageBlock)
       newBlocks.push(block)
       const newExercises = Array.isArray(p.exercises) ? [...p.exercises, exerciseMeta] : [exerciseMeta]
-      toast.success('Exercise added to part ' + p.part)
+      toast.success('Thêm bài tập cho Part ' + p.part)
       return { ...p, blocks: newBlocks, exercises: newExercises }
     }))
 
@@ -494,8 +494,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
   const handleSavePart = (idx) => {
     const p = parts[idx]
     if (!p) return
-    console.log('Part saved:', JSON.stringify(p, null, 2))
-    toast.success('Part saved')
+    toast.success('Lưu Part')
     // clear dirty flag for this part
     clearPartDirty(idx)
     // if creator was dirty and saving this part, clear creator dirty
@@ -666,7 +665,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
 
     console.log('Script saved:', JSON.stringify(passage, null, 2))
     setScriptCollapsed(true)
-    toast.success('Script saved')
+    toast.success('Lưu script thành công')
   }
 
   // --- Answer key handlers ---
@@ -708,7 +707,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
     setParts(prev => prev.map((p, idx) => idx === partIdx ? ({ ...p, answerKey: JSON.parse(JSON.stringify(answerListDraft)) }) : p))
     markPartDirty(partIdx)
     console.log('Answer key saved for part', answerEditingPartIndex, JSON.stringify(answerListDraft, null, 2))
-    toast.success('Answer key saved')
+    toast.success('Lưu answer key thành công')
     setShowAnswerPopup(false)
     setAnswerEditingPartIndex(null)
     setAnswerUnsaved(false)
@@ -856,7 +855,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
     try {
         const res = await axios.post(`${url}/api/test/skills`, payload, { headers: { Authorization: `Bearer ${token}` } })
         if (res.data?.success) {
-          toast.success('Created reading test')
+          toast.success('Tạo Reading Test thành công')
           setScriptCollapsed(false)
           setCreatorDirty(false)
           setDirtyParts({})
@@ -884,7 +883,7 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
       axios.put(`${url}/api/test/skills/${skillId}`, payload, { headers: { Authorization: `Bearer ${token}` } })
         .then(res => {
           if (res.data?.success) {
-            toast.success('Updated reading test')
+            toast.success('Cập nhật Reading Test thành công')
           } else {
             toast.error('Lỗi cập nhật test')
           }
@@ -1010,10 +1009,10 @@ const ReadingTestManagement = ({ testCollection, setSidebarData, collectionSkill
         );
 
         await fetchSkill() // refresh data after import
-        toast.success('PDF uploaded')
+        toast.success('Tải PDF thành công')
       } catch (e) {
         console.error(e)
-        toast.error('PDF upload failed')
+        toast.error('Tải PDF thất bại')
       }
     }
 

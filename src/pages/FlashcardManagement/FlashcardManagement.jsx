@@ -205,7 +205,7 @@ const FlashcardManagement = () => {
                         }))
                     }
 
-                    toast.success(`AI generate ${aiJob.topic} hoàn tất!`)
+                    toast.success(`AI sinh từ cho ${aiJob.topic} hoàn tất!`)
 
                     setAiJob(null) // clear
                     clearInterval(interval)
@@ -957,7 +957,7 @@ const FlashcardManagement = () => {
       <div className="add_word_popup">
         <AddWordForm 
           selectedWord={selectedWord} 
-          onSaveWord={selectedWord?updateWord:addCardWithData}
+          onSaveWord={selectedWord._id?updateWord:addCardWithData}
           onClosePopup={()=>{setShowAddPopup(false), setSelectedWord({})}}
         />
       </div>

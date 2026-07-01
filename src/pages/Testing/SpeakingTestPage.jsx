@@ -726,7 +726,7 @@ const SpeakingTestPage = () => {
       setGradingResult(response.data.parts);
 
       toast.success(
-        "Speaking test submitted successfully"
+        "Nộp bài nói thành công"
       );
 
       setIsSubmitted(true);
@@ -736,7 +736,7 @@ const SpeakingTestPage = () => {
       console.error(err);
 
       toast.error(
-        "Submit speaking failed"
+        "Nộp bài nói thất bại"
       );
 
     } finally {

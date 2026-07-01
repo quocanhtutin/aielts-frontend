@@ -265,10 +265,10 @@ const AddLessonPopup = ({ courseId, courseCategory, onClose, onLessonAdded, edit
                     const data = await uploadToServer(file)
                     const imgUrl = data?.url || data?.data || data
                     setFormData(prev => ({ ...prev, [name]: imgUrl }));
-                    toast.success('File uploaded')
+                    toast.success('Tải file thành công')
                 } catch (err) {
                     console.error(err)
-                    toast.error('File upload failed')
+                    toast.error('Tải file thất bại')
                 }
             }
 

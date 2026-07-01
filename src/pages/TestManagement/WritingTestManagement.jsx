@@ -112,10 +112,10 @@ const WritingTestManagement = ({ testCollection, setSidebarData, collectionSkill
 			const data = await uploadToServer(file)
 			const imgUrl = data?.url || data?.data || data
 			setWritingTasks(prev => prev.map((t, i) => i === index ? ({ ...t, image: imgUrl }) : t))
-			toast.success('Image uploaded')
+			toast.success('Tải ảnh thành công')
 		} catch (err) {
 			console.error(err)
-			toast.error('Image upload failed')
+			toast.error('Tải ảnh thất bại')
 		}
 	}
 
