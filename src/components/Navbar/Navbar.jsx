@@ -76,7 +76,7 @@ const Navbar = ({ setShowLogin }) => {
                                         : "dropbtn"
                                 } to="/admin/accountmanagement">Tài khoản</Link>
                         <Link className={
-                                    isActive("/admin/coursemanagement")
+                                    isActive("/admin/coursemanagement")||isActive("/admin/coursedetail")
                                         ? "active"
                                         : "dropbtn"
                                 } to="/admin/coursemanagement">Khóa học</Link>
